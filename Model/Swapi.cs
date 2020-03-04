@@ -71,7 +71,7 @@ namespace WebApplication.Model
         {
             List<int> urlID = new List<int>();
             List<Vehicle> ships = new List<Vehicle>();
-            var vehicleList = new Repository<Vehicle>();
+            var vehicleRepo = new Repository<Vehicle>();
 
             if(swCharName.Vehicles != null)
             {
@@ -82,7 +82,7 @@ namespace WebApplication.Model
                 }
                 foreach (var id in urlID)
                 {
-                    var vehicle = vehicleList.GetById(id);
+                    var vehicle = vehicleRepo.GetById(id);
                     Console.WriteLine(vehicle.Name + "\n" + vehicle.Model);
                     ships.Add(vehicle);
 

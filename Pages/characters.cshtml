@@ -9,7 +9,18 @@
 <div >
     <div>
         <h2>@ViewData["Title"]</h2>
-        <h4>Append your favorite chacter to the url to get info about them Example: try adding "/luke" &#128523 </h4>
+        <p>Append your favorite chacter to the url to get info about them! <a href="https://localhost:5001/characters/luke">Try it out!</a> &#128523 </p>
+        <form> Sort By:     
+            <label class="radio-inline">
+                <input type="radio" name="optradio"> Name
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio"> Height
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio"> Mass
+            </label>
+        </form>
     </div>
     <ul style="text-align:left">
         @foreach (var peep in charList) 

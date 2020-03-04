@@ -3,6 +3,7 @@
 @{
     var character = Model.swChar;
     var ships = Model.starships;
+    var birthPlanet = Model.homePlanet;
 
     if (String.IsNullOrEmpty(character.Name))
     {
@@ -17,6 +18,7 @@
 }
 <div class="container">
     <h2>@ViewData["Title"]</h2>
+    <h6>HOME PLANET: <em>@Html.DisplayFor(modelItem => birthPlanet.Name)</em></h6>
 </div>
 
 <div>
