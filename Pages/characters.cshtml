@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel;
+@{
+    ViewData["Title"] = "Star Wars Characters";
+    var charList = Model.api.swCharList;
+    
+}
+
+<div >
+    <div>
+        <h2>@ViewData["Title"]</h2>
+        <h4>Append your favorite chacter to the url to get info about them Example: try adding "/luke" &#128523 </h4>
+    </div>
+    <ul style="text-align:left">
+        @foreach (var peep in charList) 
+        {
+            <li>@Html.DisplayFor(modelItem => peep.Name)</li>
+        }
+    </ul>
+</div>

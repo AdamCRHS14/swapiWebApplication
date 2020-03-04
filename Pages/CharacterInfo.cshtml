@@ -1,0 +1,56 @@
+﻿@page "/characters/{name}"
+@model CharacterInfoModel
+@{
+    var character = Model.swChar;
+    var ships = Model.starships;
+
+    if (String.IsNullOrEmpty(character.Name))
+    {
+        RedirectToPage("/Error");
+    }
+    else
+    {
+        ViewData["Title"] = character.Name;
+    }
+
+
+}
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+</div>
+
+<div>
+    <ul>
+        <li>Birth Year: @Html.DisplayFor(modelItem => character.BirthYear)</li>
+        <li>Gender:     @Html.DisplayFor(modelItem => character.Gender)</li>
+        <li>Height:     @Html.DisplayFor(modelItem => character.Height)</li>
+        <li>Weight:     @Html.DisplayFor(modelItem => character.Mass)</li>
+        <li>Eye Color:  @Html.DisplayFor(modelItem => character.EyeColor)</li>
+        <li>Skin Color: @Html.DisplayFor(modelItem => character.SkinColor)</li>
+        <li>
+            Vehicles
+            <ol>
+                @{
+                    if (ships != null)
+                    {
+                        foreach (var car in ships)
+                        {
+                            <li>Name: @Html.DisplayFor(modelItem => car.Name)</li>
+                            <ul>
+                                <li>Model: @Html.DisplayFor(modelItem => car.Model)</li>
+                                <li>Capacity: @Html.DisplayFor(modelItem => car.CargoCapacity)</li>
+                                <li>Max Speed: @Html.DisplayFor(modelItem => car.MaxAtmospheringSpeed)</li>
+                            </ul>
+                        }
+                    }
+                    else
+                    {
+                        <li>None</li>
+
+                    }
+
+                }
+            </ol>
+        </li>
+    </ul>
+</div>
