@@ -1,9 +1,14 @@
 ﻿@page
-@model IndexModel;
+@model charactersModel;
 @{
     ViewData["Title"] = "Star Wars Characters";
-    var charList = Model.api.swCharList;
-    
+    var charList = Model.sortedList;
+    if (charList == null)
+    {
+        charList = Model.api.swCharList;
+    }
+
+
 }
 
 <div >
@@ -12,13 +17,13 @@
         <p>Append your favorite chacter to the url to get info about them! <a href="https://localhost:5001/characters/luke">Try it out!</a> &#128523 </p>
         <form> Sort By:     
             <label class="radio-inline">
-                <input type="radio" name="optradio"> Name
+                <input type="radio" value="Name" asp-for="pick" name="sortby"> Name
             </label>
             <label class="radio-inline">
-                <input type="radio" name="optradio"> Height
+                <input type="radio" asp-for="pick" value="Height" name="sortby"> Height
             </label>
             <label class="radio-inline">
-                <input type="radio" name="optradio"> Mass
+                <input type="radio" asp-for="pick" value="Mass" name="sortby"> Mass
             </label>
         </form>
     </div>

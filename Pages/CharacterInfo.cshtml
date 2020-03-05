@@ -10,7 +10,7 @@
         RedirectToPage("/Error");
     }
     else
-    {
+    {  
         ViewData["Title"] = character.Name;
     }
 
@@ -43,6 +43,8 @@
                                 <li>Capacity: @Html.DisplayFor(modelItem => car.CargoCapacity)</li>
                                 <li>Max Speed: @Html.DisplayFor(modelItem => car.MaxAtmospheringSpeed)</li>
                             </ul>
+                            <br />
+
                         }
                     }
                     else

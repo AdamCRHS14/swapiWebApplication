@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="SWapiCSharp" Version="1.0.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Characters\CharacterInfo.cshtml.cs" />

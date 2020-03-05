@@ -13,9 +13,6 @@ namespace WebApplication.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        public Swapi api = new Swapi();
-
-        
 
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -25,11 +22,6 @@ namespace WebApplication.Pages
 
         public void OnGet() 
         {
-            if (api.swCharList != null)
-            {
-                return;
-            }
-            api.swCharList = api.GetPeople();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace WebApplication.Model
         
         Repository<Person> peopleRepo = new Repository<Person>();
 
-        public ICollection<Person> swCharList { get; set; }
+        public List<Person> swCharList { get; set; }
 
         Person character = null;
 
@@ -23,9 +23,15 @@ namespace WebApplication.Model
 
 
         // Method to grab all 50 Person objects from https://swapi.co/
-        public ICollection<Person> GetPeople() 
+        public List<Person> GetPeople()
         {
-            return peopleRepo.GetEntities(1, 50);
+            List<Person> tempList = new List<Person>();
+           var tempRepo = peopleRepo.GetEntities(1, 50); // returns collection. ToList() function takes too long.
+            foreach (var x in tempRepo)
+            {
+                tempList.Add(x);
+            }
+            return tempList;
         }
 
         // Gets ID parameter from all urls used in this application
